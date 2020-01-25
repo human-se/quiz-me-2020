@@ -4,33 +4,38 @@
 
 <h2>Feedback</h2>
 
+<% if local_assigns.has_key? :status_msg %>
+    <p><%= status_msg %></p>
+<% end %>
+
 <%= form_with url: leave_feedback_path, local: true, method: :post do %>
     <div>
         <%= label_tag "name" %>
-        <%= text_field_tag "name", nil %>
+        <%= text_field_tag "name", feedback.fetch(:name, nil) %>
     </div>
     <div>
         <%= label_tag "email" %>
-        <%= email_field_tag "email", nil %>
+        <%= email_field_tag "email", feedback.fetch(:email, nil) %>
     </div>
     <div>
         <span>Can we contact you by email?</span>
         <div>
-            <%= radio_button_tag "reply", true, true %>
+            <%= radio_button_tag "reply", true, feedback.fetch(:reply, nil) == true.to_s %>
             <%= label_tag "reply_yes", 'Yes' %>
         </div>
         <div>
-            <%= radio_button_tag "reply", false, false %>
+            <%= radio_button_tag "reply", false, feedback.fetch(:reply, nil) == false.to_s %>
             <%= label_tag "reply_no", 'No' %>
         </div>
     </div>
     <div>
         <%= label_tag "feedback_type" %>
-        <%= select_tag "feedback_type", options_for_select([ "Review", "Bug Report" ]), prompt: 'Choose one...' %>
+        <%= select_tag "feedback_type", options_for_select([ "Review", "Bug Report" ], feedback.fetch(:feedback_type, "")), prompt: 'Choose one...' %>
+
     </div>
     <div>
         <%= label_tag "message" %><br />
-        <%= text_area_tag "message", nil, size: "27x7" %>
+        <%= text_area_tag "message", feedback.fetch(:message, nil), size: "27x7" %>
     </div>
     <%= submit_tag "Send Feedback" %>
 <% end %>
