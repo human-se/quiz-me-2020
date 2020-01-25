@@ -23,4 +23,10 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def leave_feedback
+    respond_to do |format|
+      format.html { render :contact }
+    end
+  end
+
 end
