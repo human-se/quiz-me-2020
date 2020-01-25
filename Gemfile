@@ -55,3 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Disconnects all connections to PostgreSQL db when running rails db:reset
 gem 'pgreset', '~> 0.1.1'
+
+# Adds model attributes/routes to top of model files/routes file
+gem 'annotate', group: :development
