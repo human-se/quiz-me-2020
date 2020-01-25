@@ -1,0 +1,2 @@
+class McQuestion < ApplicationRecord
+end
