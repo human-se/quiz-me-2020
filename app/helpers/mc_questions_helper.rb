@@ -1,0 +1,2 @@
+module McQuestionsHelper
+end
