@@ -1,0 +1,9 @@
+<p><%= question.question %></p>
+
+<% choices = [question.answer, question.distractor_1, question.distractor_2] %>
+<% choices.each do |c| %>
+    <div>
+        <%= radio_button_tag "guess", c, checked = c == question.answer, disabled: true %>
+        <%= label_tag "guess_#{c}", c %>
+    </div>
+<% end %>
