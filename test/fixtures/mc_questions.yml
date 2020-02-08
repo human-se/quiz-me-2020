@@ -14,13 +14,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  question: MyString
-  answer: MyString
-  distractor_1: MyString
-  distractor_2: MyString
+  question: By default, every Rails model is a subclass of which superclass?
+  answer: ApplicationRecord
+  distractor_1: Object
+  distractor_2: ActiveModel
 
 two:
-  question: MyString
-  answer: MyString
-  distractor_1: MyString
-  distractor_2: MyString
+  question: The command rails db:migrate updates the schema.rb file.
+  answer: true
+  distractor_1: false
+  distractor_2: # blank loads as nil
