@@ -21,4 +21,28 @@ class McQuestionTest < ActiveSupport::TestCase
     end  
   end
 
+  test "question presence not valid" do
+    q = mc_questions(:one)
+    q.question = nil
+    assert_not q.valid?
+    q.question = ""
+    assert_not q.valid?
+  end
+
+  test "answer presence not valid" do
+    q = mc_questions(:one)
+    q.answer = nil
+    assert_not q.valid?
+    q.answer = ""
+    assert_not q.valid?
+  end
+
+  test "distractor_1 presence not valid" do
+    q = mc_questions(:one)
+    q.distractor_1 = nil
+    assert_not q.valid?
+    q.distractor_1 = ""
+    assert_not q.valid?
+  end
+
 end
