@@ -29,6 +29,13 @@ class McQuestionTest < ActiveSupport::TestCase
     assert_not q.valid?
   end
 
+  test "question uniqueness not valid" do
+    one = mc_questions(:one)
+    two = mc_questions(:two)
+    one.question = two.question
+    assert_not one.valid?
+  end
+
   test "answer presence not valid" do
     q = mc_questions(:one)
     q.answer = nil
