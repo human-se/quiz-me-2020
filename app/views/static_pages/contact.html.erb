@@ -4,10 +4,6 @@
 
 <h2>Feedback</h2>
 
-<% if flash.key? :status_msg %>
-    <p><%= flash[:status_msg] %></p>
-<% end %>
-
 <%= form_with url: leave_feedback_path, local: true, method: :post do %>
     <div>
         <%= label_tag "name" %>
