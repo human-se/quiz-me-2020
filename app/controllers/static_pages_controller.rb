@@ -39,7 +39,10 @@ class StaticPagesController < ApplicationController
       form_status_msg = 'Please fill in all the remaining form fields and resubmit.'
     end
     respond_to do |format|
-      format.html { render :contact, locals: { status_msg: form_status_msg, feedback: params } }
+      format.html do
+        flash.now[:status_msg] = form_status_msg
+        render :contact, locals: { feedback: params }
+      end
     end
   end
 
