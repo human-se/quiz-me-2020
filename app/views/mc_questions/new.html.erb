@@ -1,0 +1,27 @@
+<h1>New Question</h1>
+
+<%= form_with model: question, url: mc_questions_path, method: :post, local: true, scope: :mc_question do |f| %>
+
+  <div>
+    <%= f.label :question %><br>
+    <%= f.text_field :question %>
+  </div>
+
+  <div>
+    <%= f.label :answer %><br>
+    <%= f.text_field :answer %>
+  </div>
+
+  <div>
+    <%= f.label :distractor_1 %><br>
+    <%= f.text_field :distractor_1 %>
+  </div>
+
+  <div>
+    <%= f.label :distractor_2 %><br>
+    <%= f.text_field :distractor_2 %>
+  </div>
+
+  <%= f.submit "Add Question" %>
+
+<% end %>

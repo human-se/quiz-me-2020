@@ -14,4 +14,11 @@ class McQuestionsController < ApplicationController
         end
     end
 
+    def new
+        question = McQuestion.new
+        respond_to do |format|
+            format.html { render :new, locals: { question: question } }
+        end
+    end
+
 end
