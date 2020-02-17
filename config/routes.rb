@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post 'mc_questions', to: 'mc_questions#create' # create
   get 'mc_questions/:id', to: 'mc_questions#show', as: 'mc_question' # show
   get 'mc_questions/:id/edit', to: 'mc_questions#edit', as: 'edit_mc_question' # edit
+  patch 'mc_questions/:id', to: 'mc_questions#update' # update (as needed)
+  put 'mc_questions/:id', to: 'mc_questions#update' # update (full replacement)
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
