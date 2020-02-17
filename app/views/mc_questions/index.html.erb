@@ -4,7 +4,11 @@
 
 <% questions.each do |question| %>
     <div id="<%= dom_id(question) %>">
-        <p><%= question.question %></p>
+        <p>
+            <%= question.question %>
+            <%= link_to '🔎', mc_question_path(question) %>
+            <%= link_to '🖋', edit_mc_question_path(question) %>
+        </p>
         <% choices = [question.answer, question.distractor_1, question.distractor_2] %>
         <% choices.each do |c| %>
             <div>
