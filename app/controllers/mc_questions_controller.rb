@@ -42,4 +42,11 @@ class McQuestionsController < ApplicationController
         end
     end
 
+    def edit
+        question = McQuestion.find(params[:id])
+        respond_to do |format|
+            format.html { render :edit, locals: { question: question } }
+        end
+    end
+
 end
