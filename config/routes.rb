@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'mc_questions/:id/edit', to: 'mc_questions#edit', as: 'edit_mc_question' # edit
   patch 'mc_questions/:id', to: 'mc_questions#update' # update (as needed)
   put 'mc_questions/:id', to: 'mc_questions#update' # update (full replacement)
+  delete 'mc_questions/:id', to: 'mc_questions#destroy' # destroy
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
