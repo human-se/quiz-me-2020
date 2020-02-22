@@ -19,4 +19,20 @@ class QuizTest < ActiveSupport::TestCase
     end
   end
 
+  test "title presence not valid" do
+    q = quizzes(:one)
+    q.title = nil
+    assert_not q.valid?
+    q.title = ""
+    assert_not q.valid?
+  end
+  
+  test "description presence not valid" do
+    q = quizzes(:one)
+    q.description = nil
+    assert_not q.valid?
+    q.description = ""
+    assert_not q.valid?
+  end
+
 end
