@@ -6,6 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+quiz1 = Quiz.create!(
+    title: 'MVC Concepts',
+    description: 'This quiz covers concepts related to the Model-View-Controller web application architecture.'
+)
+
+quiz2 = Quiz.create!(
+    title: 'Rails Concepts',
+    description: 'This quiz covers concepts related to web application development using the Ruby on Rails platform.'
+)
+
 q1 = McQuestion.create!(
     question: 'What does the M in MVC stand for?',
     answer: 'Model',
