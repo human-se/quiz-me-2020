@@ -12,7 +12,11 @@
 require 'test_helper'
 
 class QuizTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "fixtures are valid" do
+    quizzes.each do |q|
+      assert q.valid?, q.errors.full_messages.inspect
+    end
+  end
+
 end
