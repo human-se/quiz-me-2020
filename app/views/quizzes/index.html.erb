@@ -1,5 +1,9 @@
 <h1>Quizzes</h1>
 
+<p>
+  <%= link_to 'New Quiz', new_quiz_path %>
+</p>
+
 <% quizzes.each do |quiz| %>
   <div id="<%= dom_id(quiz) %>">
     <br>
