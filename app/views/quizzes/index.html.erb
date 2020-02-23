@@ -1,0 +1,13 @@
+<h1>Quizzes</h1>
+
+<% quizzes.each do |quiz| %>
+  <div id="<%= dom_id(quiz) %>">
+    <br>
+    <p>
+      <%= quiz.title %>
+    </p>
+    <p>
+      <%= truncate quiz.description, length: 75, separator: ' ' %>
+    </p>
+  </div>
+<% end %>

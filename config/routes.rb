@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   put 'mc_questions/:id', to: 'mc_questions#update' # update (full replacement)
   delete 'mc_questions/:id', to: 'mc_questions#destroy' # destroy
 
+  get 'quizzes', to: 'quizzes#index', as: 'quizzes' # index
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
