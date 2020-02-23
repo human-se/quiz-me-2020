@@ -77,4 +77,20 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def destroy
+    # load existing object again from URL param
+    quiz = Quiz.find(params[:id])
+    # destroy object
+    quiz.destroy
+    # respond_to block
+    respond_to do |format|
+      format.html do
+        # success message
+        flash[:success] = 'Quiz removed successfully'
+        # redirect to index
+        redirect_to quizzes_url
+      end
+    end
+  end
+
 end

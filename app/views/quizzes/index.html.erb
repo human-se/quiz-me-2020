@@ -11,6 +11,7 @@
       <%= quiz.title %>
       <%= link_to '🔎', quiz_path(quiz) %>
       <%= link_to '🖋', edit_quiz_path(quiz) %>
+      <%= link_to '🗑', quiz_path(quiz), method: :delete %>
     </p>
     <p>
       <%= truncate quiz.description, length: 75, separator: ' ' %>
