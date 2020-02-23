@@ -5,6 +5,7 @@
     <br>
     <p>
       <%= quiz.title %>
+      <%= link_to '🔎', quiz_path(quiz) %>
     </p>
     <p>
       <%= truncate quiz.description, length: 75, separator: ' ' %>
