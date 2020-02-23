@@ -1,0 +1,17 @@
+<h1>Edit Quiz</h1>
+
+<%= form_with model: quiz, url: quiz_path, method: :patch, local: true, scope: :quiz do |form| %>
+
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description, size: "27x7" %>
+  </div>
+
+  <%= form.submit "Update Quiz" %>
+
+<% end %>

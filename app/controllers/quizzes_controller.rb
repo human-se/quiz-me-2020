@@ -48,4 +48,33 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def edit
+    # object to use in form
+    quiz = Quiz.find(params[:id])
+    respond_to do |format|
+      format.html { render :edit, locals: { quiz: quiz } }
+    end
+  end
+  
+  def update
+    # load existing object again from URL param
+    quiz = Quiz.find(params[:id])
+    # respond_to block
+    respond_to do |format|
+      format.html do
+        if quiz.update(params.require(:quiz).permit(:title, :description))
+          # success message
+          flash[:success] = 'Quiz updated successfully'
+          # redirect to index
+          redirect_to quizzes_url
+        else
+          # error message
+          flash.now[:error] = 'Error: Quiz could not be updated'
+          # render edit
+          render :edit, locals: { quiz: quiz }
+        end
+      end
+    end
+  end
+
 end

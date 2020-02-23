@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   get 'quizzes/new', to: 'quizzes#new', as: 'new_quiz' # new
   post 'quizzes', to: 'quizzes#create' # create
   get 'quizzes/:id', to: 'quizzes#show', as: 'quiz' # show
-
+  get 'quizzes/:id/edit', to: 'quizzes#edit', as: 'edit_quiz' # edit
+  put 'quizzes/:id', to: 'quizzes#update' # update (put)
+  patch 'quizzes/:id', to: 'quizzes#update' # update (patch)
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
