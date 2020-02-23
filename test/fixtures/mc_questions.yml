@@ -27,9 +27,11 @@ one:
   answer: ApplicationRecord
   distractor_1: Object
   distractor_2: ActiveModel
+  quiz: one
 
 two:
   question: The command rails db:migrate updates the schema.rb file.
   answer: true
   distractor_1: false
   distractor_2: # blank loads as nil
+  quiz: one
