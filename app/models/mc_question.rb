@@ -21,6 +21,14 @@
 #
 
 class McQuestion < ApplicationRecord
+
+  belongs_to(
+    :quiz, # McQuestion attribute of with datatype Quiz
+    class_name: 'Quiz', # datatype of attribute
+    foreign_key: 'quiz_id', # name of column containing FK
+    inverse_of: :mc_questions # attribute on other side of association (array containing all McQuestion objects belonging to a quiz)
+  )
+
   validates :question,
     presence: true,
     uniqueness: true
