@@ -1,6 +1,6 @@
 <h1>Multiple-Choice Questions</h1>
 
-<%= link_to 'New Question', new_mc_question_path %>
+<%= link_to 'New Question', new_quiz_mc_question_path(quiz) %>
 
 <% questions.each do |question| %>
     <div id="<%= dom_id(question) %>">

@@ -6,6 +6,8 @@
 
 <h2>Questions</h2>
 
+<%= link_to 'New Question', new_quiz_mc_question_path(quiz) %>
+
 <% quiz.mc_questions.each do |question| %>
   <div id="<%= dom_id(question) %>">
     <p>

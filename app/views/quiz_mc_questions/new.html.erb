@@ -1,6 +1,6 @@
 <h1>New Question</h1>
 
-<%= form_with model: question, url: mc_questions_path, method: :post, local: true, scope: :mc_question do |f| %>
+<%= form_with model: question, url: quiz_mc_questions_path(quiz), method: :post, local: true, scope: :mc_question do |f| %>
 
   <div>
     <%= f.label :question %><br>
