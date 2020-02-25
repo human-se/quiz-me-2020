@@ -59,7 +59,7 @@ class McQuestionsController < ApplicationController
                     # success message
                     flash[:success] = 'Question updated successfully'
                     # redirect to index
-                    redirect_to mc_questions_url
+                    redirect_to quiz_url(question.quiz)
                 else
                     # error message
                     flash.now[:error] = 'Error: Question could not be updated'
@@ -81,7 +81,7 @@ class McQuestionsController < ApplicationController
                 # success message
                 flash[:success] = 'Question removed successfully'
                 # redirect to index
-                redirect_to mc_questions_url
+                redirect_to quiz_url(question.quiz)
             end
         end
     end
