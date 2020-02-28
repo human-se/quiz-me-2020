@@ -58,3 +58,6 @@ gem 'pgreset', '~> 0.1.1'
 
 # Adds model attributes/routes to top of model files/routes file
 gem 'annotate', group: :development
+
+# Authentication
+gem 'devise'
