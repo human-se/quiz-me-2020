@@ -1,5 +1,7 @@
 class QuizzesController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
     # get all quiz objects
     quizzes = Quiz.all

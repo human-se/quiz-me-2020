@@ -1,5 +1,7 @@
 class McQuestionsController < ApplicationController
 
+    before_action :authenticate_user!
+
     # def index
     #     questions = McQuestion.all
     #     respond_to do |format|
