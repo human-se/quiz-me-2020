@@ -29,5 +29,7 @@ Rails.application.routes.draw do
   patch 'quizzes/:id', to: 'quizzes#update' # update (patch)
   delete 'quizzes/:id', to: 'quizzes#destroy' # destroy
 
+  get 'account/quizzes', to: 'account_quizzes#index', as: 'account_quizzes' # my quizzes page
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
