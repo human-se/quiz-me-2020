@@ -1,6 +1,6 @@
 <h1>New Quiz</h1>
 
-<%= form_with model: quiz, url: quizzes_path, method: :post, local: true, scope: :quiz do |form| %>
+<%= form_with model: quiz, url: account_quizzes_path, method: :post, local: true, scope: :quiz do |form| %>
 
   <div>
     <%= form.label :title %><br>

@@ -21,8 +21,6 @@ Rails.application.routes.draw do
   delete 'mc_questions/:id', to: 'mc_questions#destroy' # destroy
 
   get 'quizzes', to: 'quizzes#index', as: 'quizzes' # index
-  get 'quizzes/new', to: 'quizzes#new', as: 'new_quiz' # new
-  post 'quizzes', to: 'quizzes#create' # create
   get 'quizzes/:id', to: 'quizzes#show', as: 'quiz' # show
   get 'quizzes/:id/edit', to: 'quizzes#edit', as: 'edit_quiz' # edit
   put 'quizzes/:id', to: 'quizzes#update' # update (put)
@@ -30,6 +28,8 @@ Rails.application.routes.draw do
   delete 'quizzes/:id', to: 'quizzes#destroy' # destroy
 
   get 'account/quizzes', to: 'account_quizzes#index', as: 'account_quizzes' # my quizzes page
+  get 'account/quizzes/new', to: 'account_quizzes#new', as: 'new_account_quiz'
+  post 'account/quizzes', to: 'account_quizzes#create'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -20,35 +20,35 @@ class QuizzesController < ApplicationController
     end
   end
 
-  def new
-    # make empty quiz object
-    quiz = Quiz.new
-    # display new view
-    respond_to do |format|
-      format.html { render :new, locals: { quiz: quiz } }
-    end
-  end
+  # def new
+  #   # make empty quiz object
+  #   quiz = Quiz.new
+  #   # display new view
+  #   respond_to do |format|
+  #     format.html { render :new, locals: { quiz: quiz } }
+  #   end
+  # end
   
-  def create
-    # new object from params
-    quiz = Quiz.new(params.require(:quiz).permit(:title, :description))
-    # respond_to block
-    respond_to do |format|
-      format.html do
-        if quiz.save
-          # success message
-          flash[:success] = "Quiz saved successfully"
-          # redirect to index
-          redirect_to quizzes_url
-        else
-          # error message
-          flash.now[:error] = "Error: Quiz could not be saved"
-          # render new
-          render :new, locals: { quiz: quiz }
-        end
-      end
-    end
-  end
+  # def create
+  #   # new object from params
+  #   quiz = Quiz.new(params.require(:quiz).permit(:title, :description))
+  #   # respond_to block
+  #   respond_to do |format|
+  #     format.html do
+  #       if quiz.save
+  #         # success message
+  #         flash[:success] = "Quiz saved successfully"
+  #         # redirect to index
+  #         redirect_to quizzes_url
+  #       else
+  #         # error message
+  #         flash.now[:error] = "Error: Quiz could not be saved"
+  #         # render new
+  #         render :new, locals: { quiz: quiz }
+  #       end
+  #     end
+  #   end
+  # end
 
   def edit
     # object to use in form
