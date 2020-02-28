@@ -1,6 +1,7 @@
 class QuizzesController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :require_permission, only: [:edit, :update, :destroy]
 
   def index
     # get all quiz objects
@@ -92,6 +93,12 @@ class QuizzesController < ApplicationController
         # redirect to index
         redirect_to quizzes_url
       end
+    end
+  end
+
+  def require_permission
+    if Quiz.find(params[:id]).creator != current_user
+      redirect_to quizzes_path, flash: { error: "You do not have permission to do that." }
     end
   end
 

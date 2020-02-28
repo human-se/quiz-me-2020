@@ -1,7 +1,9 @@
 <p>
     <%= question.question %>
-    <%= link_to '🖋', edit_mc_question_path(question) %>
-    <%= link_to '🗑', mc_question_path(question), method: :delete %>
+    <% if question.quiz.creator == current_user %>
+        <%= link_to '🖋', edit_mc_question_path(question) %>
+        <%= link_to '🗑', mc_question_path(question), method: :delete %>
+    <% end %>
 </p>
 
 <% choices = [question.answer, question.distractor_1, question.distractor_2] %>

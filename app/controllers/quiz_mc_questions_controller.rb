@@ -1,6 +1,7 @@
 class QuizMcQuestionsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :require_permission, only: [:new, :create]
 
   def index
     quiz = Quiz.includes(:mc_questions).find(params[:id])
@@ -36,6 +37,12 @@ class QuizMcQuestionsController < ApplicationController
           render :new, locals: { quiz: quiz, question: question }
         end
       end
+    end
+  end
+
+  def require_permission
+    if Quiz.find(params[:id]).creator != current_user
+      redirect_to quizzes_path, flash: { error: "You do not have permission to do that." }
     end
   end
 

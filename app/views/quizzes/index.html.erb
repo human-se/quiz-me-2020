@@ -6,8 +6,10 @@
     <p>
       <%= quiz.title %>
       <%= link_to '🔎', quiz_path(quiz) %>
-      <%= link_to '🖋', edit_quiz_path(quiz) %>
-      <%= link_to '🗑', quiz_path(quiz), method: :delete %>
+      <% if quiz.creator == current_user %>
+        <%= link_to '🖋', edit_quiz_path(quiz) %>
+        <%= link_to '🗑', quiz_path(quiz), method: :delete %>
+      <% end %>
     </p>
 
     <p>

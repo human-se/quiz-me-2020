@@ -1,6 +1,7 @@
 class McQuestionsController < ApplicationController
 
     before_action :authenticate_user!
+    before_action :require_permission, only: [:edit, :update, :destroy]
 
     # def index
     #     questions = McQuestion.all
@@ -85,6 +86,13 @@ class McQuestionsController < ApplicationController
                 # redirect to index
                 redirect_to quiz_url(question.quiz)
             end
+        end
+    end
+
+    def require_permission
+        quiz = McQuestion.find(params[:id]).quiz
+        if quiz.creator != current_user
+            redirect_to quiz_path(quiz), flash: { error: "You do not have permission to do that." }
         end
     end
 

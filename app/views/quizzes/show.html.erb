@@ -10,15 +10,19 @@
 
 <h2>Questions</h2>
 
-<%= link_to 'New Question', new_quiz_mc_question_path(quiz) %>
+<% if quiz.creator == current_user %>
+  <%= link_to 'New Question', new_quiz_mc_question_path(quiz) %>
+<% end %>
 
 <% quiz.mc_questions.each do |question| %>
   <div id="<%= dom_id(question) %>">
     <p>
       <%= question.question %>
       <%= link_to '🔎', mc_question_path(question) %>
-      <%= link_to '🖋', edit_mc_question_path(question) %>
-      <%= link_to '🗑', mc_question_path(question), method: :delete %>
+      <% if quiz.creator == current_user %>
+        <%= link_to '🖋', edit_mc_question_path(question) %>
+        <%= link_to '🗑', mc_question_path(question), method: :delete %>
+      <% end %>
     </p>
     <%
       choices = [question.answer, question.distractor_1]
