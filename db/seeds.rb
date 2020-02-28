@@ -6,12 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+u1 = User.create!(
+    email: 'alice@gmail.com',
+    password: 'password'
+)
+
+u2 = User.create!(
+    email: 'bob@gmail.com',
+    password: 'password'
+)
+
 quiz1 = Quiz.create!(
+    creator: u1,
     title: 'MVC Concepts',
     description: 'This quiz covers concepts related to the Model-View-Controller web application architecture.'
 )
 
 quiz2 = Quiz.create!(
+    creator: u2,
     title: 'Rails Concepts',
     description: 'This quiz covers concepts related to web application development using the Ruby on Rails platform.'
 )
