@@ -14,7 +14,9 @@
  *= require_self
  */
 
+@import "../node_modules/bootswatch/dist/yeti/variables";
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootswatch/dist/yeti/bootswatch";
 
 div.field_with_errors {
   color: red;
