@@ -14,6 +14,8 @@
  *= require_self
  */
 
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 div.field_with_errors {
   color: red;
   display: inline;
