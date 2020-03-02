@@ -2,22 +2,21 @@
 
 <% quizzes.each do |quiz| %>
   <div id="<%= dom_id(quiz) %>">
-    <br>
-    <p>
-      <%= quiz.title %>
-      <%= link_to '🔎', quiz_path(quiz) %>
-      <% if quiz.creator == current_user %>
-        <%= link_to '🖋', edit_quiz_path(quiz) %>
-        <%= link_to '🗑', quiz_path(quiz), method: :delete %>
-      <% end %>
-    </p>
-
-    <p>
-      Created by: <%= quiz.creator.email %>
-    </p>
-
-    <p>
-      <%= truncate quiz.description, length: 75, separator: ' ' %>
-    </p>
+    <div class="card container border-primary mb-3">
+      <div class="card-header row justify-content-between text-white bg-primary">
+        <h5 class='m-0'><%= quiz.title %></h5>
+        <div>
+          <%= link_to '🔎', quiz_path(quiz) %>
+          <% if quiz.creator == current_user %>
+            <%= link_to '🖋', edit_quiz_path(quiz) %>
+            <%= link_to '🗑', quiz_path(quiz), method: :delete %>
+          <% end %>
+        </div>
+      </div>
+      <div class="card-body">
+        <h6 class="card-subtitle mb-2 text-muted">By: <%= quiz.creator.email %></h6>
+        <p class="card-text"><%= truncate quiz.description, length: 75, separator: ' ' %></p>
+      </div>
+    </div>
   </div>
 <% end %>
