@@ -2,14 +2,30 @@
 
 <%= form_with model: quiz, url: account_quizzes_path, method: :post, local: true, scope: :quiz do |form| %>
 
+  <% invalid = quiz.errors.include?(:title) %>
   <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title, class: "form-control" %>
+    <%= form.text_field :title, class: "form-control #{'is-invalid' if invalid}" %>
+    <% if invalid %>
+      <div class="invalid-feedback d-block">
+        <% quiz.errors.full_messages_for(:title).each do |error_message| %>
+          <%= error_message %>.
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
+  <% invalid = quiz.errors.include?(:description) %>
   <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description, size: "27x7", class: "form-control" %>
+    <%= form.text_area :description, size: "27x7", class: "form-control #{'is-invalid' if invalid}" %>
+    <% if invalid %>
+      <div class="invalid-feedback d-block">
+        <% quiz.errors.full_messages_for(:description).each do |error_message| %>
+          <%= error_message %>.
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
   <%= form.submit "Add Quiz", class: "btn btn-block btn-primary" %>
