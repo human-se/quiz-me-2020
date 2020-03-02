@@ -26,3 +26,7 @@ div.field_with_errors {
   color: red;
   display: inline;
 }
+
+.alert-dismissible {
+  padding-left: $close-font-size + $alert-padding-x * 2;
+}
