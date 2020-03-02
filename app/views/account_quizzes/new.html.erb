@@ -2,16 +2,16 @@
 
 <%= form_with model: quiz, url: account_quizzes_path, method: :post, local: true, scope: :quiz do |form| %>
 
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :description %><br>
-    <%= form.text_area :description, size: "27x7" %>
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, size: "27x7", class: "form-control" %>
   </div>
 
-  <%= form.submit "Add Quiz" %>
+  <%= form.submit "Add Quiz", class: "btn btn-block btn-primary" %>
 
 <% end %>
